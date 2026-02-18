@@ -1,0 +1,51 @@
+{
+  "heating": {
+    "category": "heating",
+    "yellow_threshold": 2.50,
+    "red_threshold": 3.00,
+    "normal_low": 1.00,
+    "normal_high": 2.50
+  },
+  "water": {
+    "category": "water",
+    "yellow_threshold": 1.50,
+    "red_threshold": 1.80,
+    "normal_low": 0.50,
+    "normal_high": 1.20
+  },
+  "utilities": {
+    "category": "utilities",
+    "yellow_threshold": 1.80,
+    "red_threshold": 2.00,
+    "normal_low": 0.80,
+    "normal_high": 1.50
+  },
+  "elevator": {
+    "category": "elevator",
+    "yellow_threshold": 0.80,
+    "red_threshold": 1.00,
+    "normal_low": 0.20,
+    "normal_high": 0.60
+  },
+  "garbage": {
+    "category": "garbage",
+    "yellow_threshold": 1.00,
+    "red_threshold": 1.20,
+    "normal_low": 0.30,
+    "normal_high": 0.80
+  },
+  "tax": {
+    "category": "tax",
+    "yellow_threshold": 1.20,
+    "red_threshold": 1.50,
+    "normal_low": 0.40,
+    "normal_high": 1.00
+  },
+  "other": {
+    "category": "other",
+    "yellow_threshold": 1.50,
+    "red_threshold": 2.00,
+    "normal_low": 0.50,
+    "normal_high": 1.20
+  }
+}
