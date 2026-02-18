@@ -1,7 +1,13 @@
 import Stripe from 'stripe'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia'
+function getStripeKey() {
+  const key = process.env.STRIPE_SECRET_KEY
+  if (!key) throw new Error('STRIPE_SECRET_KEY is not set')
+  return key
+}
+
+export const stripe = new Stripe(getStripeKey(), {
+  apiVersion: '2026-01-28.clover'
 })
 
 export const PRICE_ID = process.env.STRIPE_PRICE_ID || 'price_placeholder'

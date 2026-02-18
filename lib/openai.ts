@@ -1,10 +1,16 @@
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!
-})
+function getOpenAIClient() {
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey) {
+    throw new Error('OPENAI_API_KEY is not set')
+  }
+  return new OpenAI({ apiKey })
+}
 
 export async function extractBillData(imageUrl: string) {
+  const openai = getOpenAIClient()
+  
   const prompt = `Extract ALL line items from this German utility bill (Betriebskostenabrechnung).
 
 For each line item, extract:
@@ -52,4 +58,4 @@ Return ONLY valid JSON in this format:
   return JSON.parse(content)
 }
 
-export default openai
+export default getOpenAIClient

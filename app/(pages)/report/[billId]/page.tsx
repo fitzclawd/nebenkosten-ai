@@ -80,7 +80,7 @@ export default function ReportPage() {
           tenantName: '[Ihr Name einfügen]',
           tenantAddress: '[Ihre Adresse einfügen]',
           billingPeriod: data.billing_period || data.verified_data?.billing_period || '[Zeitraum]',
-          errors: data.analysis_result.lineItems.filter(i => i.error_type !== 'none'),
+          errors: data.analysis_result.lineItems.filter((i: LineItem) => i.error_type !== 'none'),
           estimatedRefund: data.analysis_result.estimatedRefund
         })
         setObjectionLetter(letter)
