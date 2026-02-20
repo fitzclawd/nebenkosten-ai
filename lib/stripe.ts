@@ -4,7 +4,7 @@ import Stripe from 'stripe'
 const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder'
 
 export const stripe = new Stripe(stripeKey, {
-  apiVersion: '2024-12-18.acacia'
+  apiVersion: '2024-11-20.acacia' as const
 })
 
 export const PRICE_ID = process.env.STRIPE_PRICE_ID || 'price_placeholder'
