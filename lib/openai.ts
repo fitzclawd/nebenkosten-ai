@@ -3,13 +3,17 @@ import OpenAI from 'openai'
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY
   if (!apiKey) {
-    throw new Error('OPENAI_API_KEY is not set')
+    // Return null to allow build, will check at runtime
+    return null
   }
   return new OpenAI({ apiKey })
 }
 
 export async function extractBillData(imageUrl: string) {
   const openai = getOpenAIClient()
+  if (!openai) {
+    throw new Error('OPENAI_API_KEY is not configured')
+  }
   
   const prompt = `Extract ALL line items from this German utility bill (Betriebskostenabrechnung).
 

@@ -1,13 +1,10 @@
 import Stripe from 'stripe'
 
-function getStripeKey() {
-  const key = process.env.STRIPE_SECRET_KEY
-  if (!key) throw new Error('STRIPE_SECRET_KEY is not set')
-  return key
-}
+// Use dummy value for build, actual key injected at runtime
+const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder'
 
-export const stripe = new Stripe(getStripeKey(), {
-  apiVersion: '2026-01-28.clover'
+export const stripe = new Stripe(stripeKey, {
+  apiVersion: '2024-12-18.acacia'
 })
 
 export const PRICE_ID = process.env.STRIPE_PRICE_ID || 'price_placeholder'
